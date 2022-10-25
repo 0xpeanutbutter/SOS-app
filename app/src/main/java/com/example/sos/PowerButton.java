@@ -3,7 +3,6 @@ package com.example.sos;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 public class PowerButton extends BroadcastReceiver {
 
@@ -24,10 +23,6 @@ public class PowerButton extends BroadcastReceiver {
 
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             count++;
-
-            Log.e("LOB", "wasScreenOn" + wasScreenOn);
-
-
         }
         if (count == 1) {
             firstTime = System.currentTimeMillis();
@@ -40,7 +35,6 @@ public class PowerButton extends BroadcastReceiver {
         if (count == 4) {
             lastTime = System.currentTimeMillis();
             if (lastTime - firstTime <= 4000) {
-                Log.e("Sent msgs", String.valueOf(count));
                 main.onSend(null);
             }
         }

@@ -26,7 +26,6 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.os.Looper;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -169,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
                 wasScreenOn = false;
             } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
                 count++;
-                Log.e("LOB", "wasScreenOn" + wasScreenOn);
             }
             if (count == 1) {
                 firstTime = System.currentTimeMillis();
@@ -182,7 +180,6 @@ public class MainActivity extends AppCompatActivity {
             if (count == 4) {
                 lastTime = System.currentTimeMillis();
                 if (lastTime - firstTime <= 4000) {
-                    Log.e("Send Messages", String.valueOf(count)); // this was executed
                     updateAddress(context);
                     String strAddress = "I'm in danger and Here is my current address" + "\n" +
                             "Place : " + address.getLocality() + "\n" +
@@ -207,12 +204,9 @@ public class MainActivity extends AppCompatActivity {
         // Get numbers from the shared preference list
 
         this.sharedPreferences = getSharedPreferences(myPreferences,Context.MODE_PRIVATE);
-        numbers[0] = sharedPreferences.getString(phoneNumber1,"8129636160");
-        numbers[1] = sharedPreferences.getString(phoneNumber2,"8129636160");
-        numbers[2] = sharedPreferences.getString(phoneNumber3,"8129636160");
-        Log.e("num",numbers[0]);
-        Log.e("num",numbers[1]);
-        Log.e("num",numbers[2]);
+        numbers[0] = sharedPreferences.getString(phoneNumber1,"0000000000");
+        numbers[1] = sharedPreferences.getString(phoneNumber2,"0000000000");
+        numbers[2] = sharedPreferences.getString(phoneNumber3,"0000000000");
 
         //     numbers[0] = number1.getText().toString();
    //     numbers[1] = number2.getText().toString();
