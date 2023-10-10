@@ -1,5 +1,5 @@
 # SOS-app
-
+SOS app will send notification to 3 contacts on pressing the button. Notification will include location of the person with custom message.
 While running the app, include the build.gradle dependences
 
 ```
